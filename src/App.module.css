@@ -1,4 +1,10 @@
 .authMsg {
     font-weight: 300;
-    margin: 4rem;
+    margin: 1rem 0 0 4rem;
+    background-color: #e7b305;
+    color: #124F33;
+    text-shadow: 0px 0px 2px #e7b305;
+    width: fit-content;
+    padding: 0.7rem;
+    border-radius: 3px;
 }

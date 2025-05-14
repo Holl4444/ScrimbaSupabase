@@ -95,10 +95,10 @@ function App() {
       <Header logInFn={logIn} logOutFn={logOut} userState={user} />
       {user && (
         <>
-          <h3 className={styles.authMsg}>
+          <h4 className={styles.authMsg}>
             Logged in as{' '}
             {user.email ? user.email.split('@')[0] : user.id}
-          </h3>
+          </h4>
           <Dashboard />
         </>
       ) }
