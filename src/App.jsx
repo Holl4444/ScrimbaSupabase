@@ -50,13 +50,16 @@ function App() {
         console.error(`Error getting session data: `, err);
       }
     };
+
     getCurrentSession();
+
     return () => {
       if (authSubscription) {
         authSubscription.unsubscribe();
         console.log('onAuthStateChange cleaned up.');
       }
     };
+    
   }, []);
 
   const logIn = async () => {

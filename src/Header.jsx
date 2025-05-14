@@ -22,7 +22,7 @@ function Header({ logInFn, logOutFn, userState }) {
                 strokeLinecap="round"
               />
             </svg>
-            Sales Team Dashboard
+            Sesame Street Sales
           </h1>
           {userState !== null ? (
             <button onClick={logOutFn}>Log Out</button>
