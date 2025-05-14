@@ -6,7 +6,24 @@ function Dashboard() {
   const [metrics, setMetrics] = useState([]);
   useEffect(() => {
     fetchMetrics();
+    const channel = supabase
+      .channel('deal-changes')
+      .on(
+        'postgret_changes',
+        { event: '*', schema: 'public', tables: 'sales_deals' },
+        (payload) => {
+          console.log(payload.new);
+          fetchMetrics();
+        }
+      )
+      .subscribe();
+
+    return () => {
+      supabase.removeChannel(channel);
+    };
   }, []);
+
+  
 
   async function fetchMetrics() {
     try {
