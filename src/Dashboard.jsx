@@ -10,13 +10,12 @@ function Dashboard() {
     const channel = supabase
       .channel('deal-changes')
       .on(
-        'postgret_changes',
-        { event: '*', schema: 'public', tables: 'sales_deals' },
+        'postgres_changes',
+        { event: '*', schema: 'public', table: 'sales_deals' },
         (payload) => {
-          console.log(payload.new);
+          console.log(payload);
           fetchMetrics();
-        }
-      )
+        })
       .subscribe();
 
     return () => {
@@ -24,7 +23,6 @@ function Dashboard() {
     };
   }, []);
 
-  
 
   async function fetchMetrics() {
     try {
