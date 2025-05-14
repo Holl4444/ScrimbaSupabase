@@ -7,11 +7,16 @@
   letter-spacing: -0.5px; /* makes letters closer together */
   color-scheme: light dark;
   color: black;
-  background-color: white;
+  background-color: #f5cb58;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  margin: 0;
+  box-sizing: border-box;
 }
 
 button, input, textarea, select {
@@ -36,18 +41,12 @@ h1 {
 }
 
 header {
-  background-color: #134e32;
+  background-color: #0c741a;
   width: 100vw;
-  position: fixed;
+  position: sticky;
   top: 0;
-  left: 0;
-  right: 0;
   padding: 2rem 0;
-  height: 2rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  height: 6rem;
 }
 
 .dashboard-wrapper {
@@ -63,7 +62,6 @@ header {
   background-color: #f9f9f9;
   margin: 6.5rem auto 7px auto;
   padding: 0 10px 20px 10px;
-  position: relative;
   overflow: hidden;
   display: flex;
   flex-direction: column;
