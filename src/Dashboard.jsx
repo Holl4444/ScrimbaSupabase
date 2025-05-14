@@ -1,6 +1,7 @@
 import supabase from './supabase-client';
 import { useEffect, useState } from 'react';
 import { Chart } from 'react-charts';
+import Form from './Form';
 
 function Dashboard() {
   const [metrics, setMetrics] = useState([]);
@@ -86,27 +87,27 @@ function Dashboard() {
     }
 
     return (
-
-    <div className="dashboard-wrapper">
-      <div className="chart-container">
-        <h2>Total Sales This Quarter ($)</h2>
-        <div style={{ flex: 1 }}>
-          <Chart
-            options={{
-              data: chartData,
-              primaryAxis,
-              secondaryAxes,
-              type: 'bar',
-              defaultColors: ['#58d675'],
-              tooltip: {
-                show: false,
-              },
-            }}
-          />
+      <div className="dashboard-wrapper">
+        <div className="chart-container">
+          <h2>Total Sales This Quarter ($)</h2>
+          <div style={{ flex: 1 }}>
+            <Chart
+              options={{
+                data: chartData,
+                primaryAxis,
+                secondaryAxes,
+                type: 'bar',
+                defaultColors: ['#58d675'],
+                tooltip: {
+                  show: false,
+                },
+              }}
+            />
+          </div>
         </div>
+        <Form metrics={metrics} />
       </div>
-    </div>
-    )
+    );
 }
 
 export default Dashboard;
