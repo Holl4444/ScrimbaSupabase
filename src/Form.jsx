@@ -1,11 +1,31 @@
+
+import { useState, useEffect } from 'react';
+
 function Form({ metrics }) {
+    const [newDeal, setNewDeal] = useState({
+        name: '',
+        value: 0,
+    });
+
+    useEffect(() => {
+        if (metrics && metrics.length > 0) {
+        setNewDeal({
+            name: metrics[0].name,
+            value: 0,
+        })
+    }
+    }, [metrics]);
+
   const handleSubmit = (event) => {
-    event.preventDefault();
+      event.preventDefault();
+      console.log(newDeal)
   };
 
   const handleChange = (event) => {
     const eventName = event.target.name;
-    const eventValue = event.target.value;
+      const eventValue = event.target.value;
+      
+      setNewDeal(prevState => ({...prevState, [eventName]: eventValue}))
   };
 
   const generateOptions = () => {
@@ -21,7 +41,11 @@ function Form({ metrics }) {
       <form onSubmit={handleSubmit}>
         <label>
           Name:
-          <select onChange={handleChange} name="name">
+          <select
+            value={newDeal.name}
+            onChange={handleChange}
+            name="name"
+          >
             {generateOptions()}
           </select>
         </label>
@@ -30,6 +54,7 @@ function Form({ metrics }) {
           <input
             type="number"
             name="value"
+            value={newDeal.value}
             onChange={handleChange}
             className="amount-input"
             min="0"
