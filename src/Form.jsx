@@ -18,7 +18,9 @@ function Form({ metrics }) {
 
   const handleSubmit = (event) => {
       event.preventDefault();
-      console.log(newDeal)
+      console.log(newDeal);
+
+      setNewDeal({ name: metrics[0].name, value: 0 });
   };
 
   const handleChange = (event) => {
